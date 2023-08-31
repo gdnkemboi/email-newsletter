@@ -9,7 +9,7 @@
     <p>Subscribers: {{ subscriber_count }}</p>
     <ul>
         {% for subscriber in subscribers %}
-            <li>{{ subscriber.name }} - {{ subscriber.email }}</li>
+            <li>{{ subscriber.email }}</li>
         {% endfor %}
     </ul>
 {% endblock %}

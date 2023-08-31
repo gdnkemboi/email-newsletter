@@ -26,13 +26,6 @@ class EmailsView(ListView):
     model = ScheduledEmail
     template_name = "emails/emails_list.html"
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     subscribers = Subscriber.objects.filter(date_subscribed__lte=ScheduledEmail.scheduled_time)
-    #     context['subscribers'] = subscribers
-    #     context['subscriber_count'] = subscribers.count()
-    #     return context
-
     def get_queryset(self):
         # Annotate each ScheduledEmail instance with the subscriber count
         queryset = super().get_queryset().annotate(
