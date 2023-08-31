@@ -1,0 +1,31 @@
+{% extends "_base.html" %}
+
+{% block title %}All Emails{% endblock %}
+
+{% block content %}
+    <h1>Emails</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Subscribers</th>
+                <th>Date Sent</th>
+                <th>Date Created</th>
+                <th>Send Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for email in object_list %}
+                <tr>
+                    <td>{{ email.subject }}</td>
+                    <td>{{ email.subscriber_count }}</td>
+                    <td>{{ email.scheduled_time }}</td>
+                    <td>{{ email.created_at }}</td>
+                    <td>{{ email.sent_status }}</td>
+                </tr>
+            {% empty %}
+                <li>No emails yet.</li>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

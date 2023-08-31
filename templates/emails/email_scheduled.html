@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+
+{% block title %}Scheduled Successfully{% endblock %}
+
+{% block content %}
+    <h3>Email successfully scheduled.</h3>
+    <p>Subject: {{ scheduledemail.subject }}</p>
+    <p>Date: {{ scheduledemail.scheduled_time }}</p>
+    <p>Subscribers: {{ subscriber_count }}</p>
+    <ul>
+        {% for subscriber in subscribers %}
+            <li>{{ subscriber.name }} - {{ subscriber.email }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
