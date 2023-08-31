@@ -8,7 +8,6 @@
         <thead>
             <tr>
                 <th>Subject</th>
-                <th>Subscribers</th>
                 <th>Date Sent</th>
                 <th>Date Created</th>
                 <th>Send Status</th>
@@ -17,10 +16,9 @@
         <tbody>
             {% for email in object_list %}
                 <tr>
-                    <td>{{ email.subject }}</td>
-                    <td>{{ email.subscriber_count }}</td>
-                    <td>{{ email.scheduled_time }}</td>
+                    <td><a href="{% url 'email_scheduled' email.id %}">{{ email.subject }}</a></td>
                     <td>{{ email.created_at }}</td>
+                    <td>{{ email.scheduled_time }}</td>
                     <td>{{ email.sent_status }}</td>
                 </tr>
             {% empty %}

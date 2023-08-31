@@ -25,14 +25,3 @@ class EmailScheduledView(DetailView):
 class EmailsView(ListView):
     model = ScheduledEmail
     template_name = "emails/emails_list.html"
-
-    def get_queryset(self):
-        # Annotate each ScheduledEmail instance with the subscriber count
-        queryset = super().get_queryset().annotate(
-            subscriber_count=Count(
-                'subs',
-                filter=Q(subs__date_subscribed__lte=F('scheduled_time'))
-            )
-        )
-
-        return queryset
