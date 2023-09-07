@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     # 3rd Party
     "django_celery_results",
     "django_celery_beat",
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -152,3 +154,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = env.str("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = env.str("DEFAULT_FROM_EMAIL")
+
+# CRISPY FORMS
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
